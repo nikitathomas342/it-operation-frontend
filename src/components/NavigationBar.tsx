@@ -1,18 +1,28 @@
 import { useState } from "react";
+import classNames from "classnames";
+import { PAGES } from "../types";
 
-enum NavigationTabs {
-  FORM = "form",
-  ALL = "all",
-  BOONTERM = "boonterm",
-  BEWALLET = "bewallet",
-  CENPAY = "cenpay",
-  PARTNER = "partner",
-}
+const { FORM } = PAGES;
 
 export const NavigationBar = () => {
-  const [currentTab, setCurrentTab] = useState<NavigationTabs>(
-    NavigationTabs.FORM
-  );
+  const [currentTab, setCurrentTab] = useState<PAGES>(FORM);
 
-  return <div className="sticky top-0 bg-black-200"></div>;
+  return (
+    <div className="sticky top-0 bg-gray-300 py-3">
+      <div className="flex flex-row justify-start items-center">
+        <p className="mx-1">Logo</p>
+        {Object.values(PAGES).map((value) => (
+          <div
+            className={classNames(
+              "hover:bg-white transition duration-200 px-4 py-2 rounded-lg",
+              { active: currentTab === value }
+            )}
+            onClick={() => setCurrentTab(value)}
+          >
+            {value}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
