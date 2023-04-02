@@ -1,17 +1,22 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { NavigationBar } from "./components";
-import { browserRouterConfig } from "./config";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CreateTransactionForm, NavigationBar, Table } from "./components";
 
-const router = createBrowserRouter(browserRouterConfig);
-
-const App = () => {
-  return (
-    <div className="App">
+const App = () => (
+  <>
+    <BrowserRouter>
       <NavigationBar />
-      <RouterProvider router={router} />
-    </div>
-  );
-};
+      <Routes>
+        <Route path="/form" element={<CreateTransactionForm />} />
+        <Route path="/all" element={<Table />} />
+        <Route path="/boonterm" element={<Table />} />
+        <Route path="/bewallet" element={<Table />} />
+        <Route path="/cenpay" element={<Table />} />
+        <Route path="/partner" element={<Table />} />
+      </Routes>
+    </BrowserRouter>
+  </>
+);
+
 
 export default App;

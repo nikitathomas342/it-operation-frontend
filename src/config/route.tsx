@@ -1,6 +1,8 @@
-import { CreateTransactionForm, Table } from "../components";
+import { RouteObject } from "react-router-dom";
+import { CreateTransactionForm, NavigationBar, Table } from "../components";
 
-export const browserRouterConfig = [
+export const browserRouterConfig: RouteObject[] = [
+  { path: "/", element: <NavigationBar /> },
   {
     path: "/form",
     element: <CreateTransactionForm />,
