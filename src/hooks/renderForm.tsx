@@ -6,15 +6,33 @@ import { FormType } from "../types";
 
 export const useRenderForm = () => {
   const renderer = useCallback(
-    ({ name, label, type, options, disabled }: any) => {
-      if (type === FormType.TEXT)
-        return <Input name={name} label={label} disabled={disabled} />;
-      if (type === FormType.DATE)
-        return <DatePicker name={name} label={label} />;
-      if (type === FormType.DROPDOWN)
-        return <Dropdown options={options} name={name} label={label} />;
-      return null;
-    },
+    (register: any, setValue: any, watch: any) =>
+      ({ name, label, type, options, disabled }: any) => {
+        if (type === FormType.TEXT)
+          return (
+            <Input
+              name={name}
+              label={label}
+              disabled={disabled}
+              register={register(name)}
+            />
+          );
+        if (type === FormType.DATE)
+          return (
+            <DatePicker name={name} label={label} register={register(name)} />
+          );
+        if (type === FormType.DROPDOWN)
+          return (
+            <Dropdown
+              options={options}
+              name={name}
+              label={label}
+              setValue={setValue}
+              watch={watch}
+            />
+          );
+        return null;
+      },
     []
   );
 
