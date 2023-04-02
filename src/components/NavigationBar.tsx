@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { PAGES } from "../types";
 import { useNavigate } from "react-router-dom";
+import { firstCharToUpperCase } from "../utils";
 
 export const NavigationBar = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export const NavigationBar = () => {
             )}
             onClick={() => navigate(`/${value}`)}
           >
-            {value}
+            {firstCharToUpperCase(value)}
           </div>
         ))}
       </div>

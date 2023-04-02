@@ -3,3 +3,8 @@ export enum FormType {
   TEXT = "text",
   DROPDOWN = "dropdown",
 }
+
+export interface DropdownOption {
+  label: string;
+  value: string;
+}
