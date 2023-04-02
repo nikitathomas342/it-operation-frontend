@@ -8,8 +8,7 @@ export const NavigationBar = () => {
 
   return (
     <div className="sticky top-0 bg-black py-3">
-      <div className="flex flex-row justify-start items-center">
-        <p className="mx-5 text-white">Logo</p>
+      <div className="flex flex-row justify-start items-center px-5">
         {Object.values(PAGES).map((value) => (
           <div
             className={classNames(
