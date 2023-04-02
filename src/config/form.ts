@@ -17,19 +17,19 @@ export const formInputs = [
     {
       name: "start",
       label: "Start",
-      type: FormType.DATE,
+      type: FormType.TIME,
     },
     {
       name: "end",
       label: "End",
-      type: FormType.DATE,
+      type: FormType.TIME,
     },
   ],
   [
     {
       name: "total",
       label: "Total",
-      type: FormType.TEXT,
+      type: FormType.TIME,
       disabled: true,
     },
     {

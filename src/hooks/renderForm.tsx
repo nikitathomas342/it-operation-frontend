@@ -3,6 +3,7 @@ import { DatePicker } from "../components/composite/DatePicker";
 import { Dropdown } from "../components/composite/Dropdown";
 import { Input } from "../components/composite/Input";
 import { FormType } from "../types";
+import { TimePicker } from "../components/composite/Time";
 
 export const useRenderForm = () => {
   const renderer = useCallback(
@@ -20,6 +21,10 @@ export const useRenderForm = () => {
         if (type === FormType.DATE)
           return (
             <DatePicker name={name} label={label} register={register(name)} />
+          );
+        if (type === FormType.TIME)
+          return (
+            <TimePicker name={name} label={label} register={register(name)} />
           );
         if (type === FormType.DROPDOWN)
           return (

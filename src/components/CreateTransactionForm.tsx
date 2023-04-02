@@ -2,14 +2,28 @@ import { useForm } from "react-hook-form";
 import { formInputs } from "../config";
 import { useRenderForm } from "../hooks";
 import { FormControl } from "./composite/FormControl";
+import { useEffect, useRef } from "react";
+import { getTimeDifference } from "../utils";
 
 export const CreateTransactionForm = () => {
   const { renderer } = useRenderForm();
   const { setValue, register, watch, handleSubmit, reset } = useForm();
+  const end = useRef();
+  const start = useRef();
 
   const submit = (d: any) => {
     console.log({ d });
   };
+
+  if (watch("end") !== end) end.current = watch("end");
+
+  if (watch("start") !== start) start.current = watch("start");
+
+  useEffect(
+    () => setValue("total", getTimeDifference(watch("start"), watch("end"))),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [setValue, watch, end.current, start.current]
+  );
 
   return (
     <div className="w-screen h-screen bg-gray-100">
