@@ -15,24 +15,26 @@ export const Table = () => {
   }, [initializeTransactions, transactions]);
 
   return (
-    <table className="table table-compact">
-      <thead>
-        <tr>
-          {displayColumns.map(({ header }) => (
-            <th>{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {(transactions as any)?.map((trans: any) => (
+    <div className="flex flex-row justify-center items-center w-full h-3/4">
+      <table className="table table-zebra mx-auto">
+        <thead>
           <tr>
-            {displayColumns.map(({ valueKey }) => (
-              <td>{trans[valueKey] || "-"}</td>
+            {displayColumns.map(({ header }) => (
+              <th>{header}</th>
             ))}
           </tr>
-        ))}
-        <tr></tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {(transactions as any)?.map((trans: any) => (
+            <tr>
+              {displayColumns.map(({ valueKey }) => (
+                <td>{trans[valueKey] || "-"}</td>
+              ))}
+            </tr>
+          ))}
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
   );
 };

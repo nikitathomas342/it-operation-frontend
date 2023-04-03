@@ -22,6 +22,7 @@ export const NavigationBar = () => {
             {firstCharToUpperCase(value)}
           </div>
         ))}
+        <button className="btn btn-success float-right">EXPORT</button>
       </div>
     </div>
   );
