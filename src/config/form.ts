@@ -15,12 +15,12 @@ export const formInputs = [
       type: FormType.DATE,
     },
     {
-      name: "start",
+      name: "startDate",
       label: "Start",
       type: FormType.TIME,
     },
     {
-      name: "end",
+      name: "endDate",
       label: "End",
       type: FormType.TIME,
     },
